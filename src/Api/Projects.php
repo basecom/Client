@@ -1064,6 +1064,16 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
+     *
+     * @return array
+     */
+    public function protectedBranches($project_id)
+    {
+        return $this->get($this->getProjectPath($project_id, 'protected_branches'));
+    }
+
+    /**
+     * @param int|string $project_id
      * @param array      $parameters
      *
      * @return mixed
@@ -1071,6 +1081,17 @@ class Projects extends AbstractApi
     public function addProtectedBranch($project_id, array $parameters = [])
     {
         return $this->post($this->getProjectPath($project_id, 'protected_branches'), $parameters);
+    }
+
+    /**
+     * @param int|string $project_id
+     * @param string     $branch
+     *
+     * @return mixed
+     */
+    public function deleteProtectedBranch($project_id, string $branch)
+    {
+        return $this->delete($this->getProjectPath($project_id, 'protected_branches/'.$branch));
     }
 
     /**
