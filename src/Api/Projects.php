@@ -645,6 +645,16 @@ class Projects extends AbstractApi
         return $this->post($this->getProjectPath($project_id, 'deploy_keys/'.self::encodePath($key_id).'/enable'));
     }
 
+        /**
+     * @param int|string $project_id
+     *
+     * @return mixed
+     */
+    public function pushRule($project_id)
+    {
+        return $this->get($this->getProjectPath($project_id, 'push_rule'));
+    }
+
     /**
      * @param int|string $project_id
      * @param array      $parameters {
