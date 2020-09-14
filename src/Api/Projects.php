@@ -1116,6 +1116,18 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
+     * @param array      $parameters
+     *
+     * @return mixed
+     */
+    public function addApprovalRule($project_id, array $parameters)
+    {
+        return $this->post($this->getProjectPath($project_id, 'approval_rules'), $parameters);
+    }
+
+
+    /**
+     * @param int|string $project_id
      *
      * @return mixed
      */
