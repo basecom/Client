@@ -197,7 +197,11 @@ abstract class AbstractApi implements ApiInterface
      */
     protected static function encodePath($uri)
     {
-        return \rawurlencode((string) $uri);
+        return str_replace(
+            '.',
+            '%2E',
+            \rawurlencode((string) $uri)
+        );
     }
 
     /**
